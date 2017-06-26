@@ -13,14 +13,34 @@
 
 <div class="container" ng-controller="HomeController as vm">
   <div class="well">
-  Hello from Bootstrap  {{vm.title}}
-
+  Hello from Bootstrap  
   </div>
+  <table class="table">
+    <tr>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Code</th>
+      <th>Date</th>
+    </tr>
+    <tr ng-repeat="pl in vm.data">
+      <td>{{pl.title}}</td>
+      <td>
+        {{pl.price | currency}}
+      </td>
+      <td>
+        {{pl.code}}
+      </td>
+      <td>
+        {{pl.last_update | date:short}}
+      </td>
+    </tr>
+  </table>
 </div>
 
 <script src="bower_components/angular/angular.min.js"></script>
 
 <script src="app/app.js"></script>
+<script src="app/playLists.service.js"></script>
 <script src="app/home.controller.js"></script>
 </body>
 </html>
